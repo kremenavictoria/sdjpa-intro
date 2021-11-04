@@ -1,6 +1,15 @@
 package guru.springframework.sdjpaintro.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Author {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String firstName;
     private String lastName;
@@ -13,12 +22,12 @@ public class Author {
     public Author() {
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -57,4 +66,5 @@ public class Author {
         result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
         return result;
     }
+
 }
