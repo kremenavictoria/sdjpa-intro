@@ -45,7 +45,6 @@ public class Author {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,18 +52,11 @@ public class Author {
 
         Author author = (Author) o;
 
-        if (getId() != author.getId()) return false;
-        if (getFirstName() != null ? !getFirstName().equals(author.getFirstName()) : author.getFirstName() != null)
-            return false;
-        return getLastName() != null ? getLastName().equals(author.getLastName()) : author.getLastName() == null;
+        return getId() == author.getId();
     }
 
     @Override
     public int hashCode() {
-        int result = getId();
-        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
-        result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
-        return result;
+        return getId();
     }
-
 }
